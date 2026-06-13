@@ -1,4 +1,5 @@
 import { Hero } from "@/components/sections/hero";
+import { PatientSplit } from "@/components/sections/patient-split";
 import { BookingBar } from "@/components/sections/booking-bar";
 import { TrustSection } from "@/components/sections/trust";
 import { Services } from "@/components/sections/services";
@@ -12,6 +13,7 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <ScrollReveal><PatientSplit /></ScrollReveal>
       <ScrollReveal><BookingBar /></ScrollReveal>
       <ScrollReveal><TrustSection /></ScrollReveal>
       <ScrollReveal><Services /></ScrollReveal>
