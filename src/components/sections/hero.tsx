@@ -18,10 +18,6 @@ const slides = [
 export function Hero() {
   return (
     <section className="relative min-h-[60vh] lg:min-h-[75vh] flex items-center overflow-hidden">
-      <input type="radio" name="hero-slide" id="hero-s0" className="hidden" defaultChecked />
-      <input type="radio" name="hero-slide" id="hero-s1" className="hidden" />
-      <input type="radio" name="hero-slide" id="hero-s2" className="hidden" />
-
       {slides.map((slide, i) => (
         <div
           key={i}
@@ -64,11 +60,10 @@ export function Hero() {
 
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3">
         {slides.map((_, i) => (
-          <label
+          <div
             key={i}
-            data-dot={i}
-            htmlFor={`hero-s${i}`}
-            className="block h-1.5 rounded-full bg-white/40 hover:bg-white/60 cursor-pointer transition-all duration-300"
+            className="hero-dot"
+            style={{ animationDelay: `${i * 5}s` }}
           />
         ))}
       </div>

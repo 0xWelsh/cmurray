@@ -76,19 +76,54 @@
 .hero-slide {
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.7s;
 }
 
-#hero-s0:checked ~ [data-slide="0"],
-#hero-s1:checked ~ [data-slide="1"],
-#hero-s2:checked ~ [data-slide="2"] {
-  opacity: 1;
-  pointer-events: auto;
+.hero-slide[data-slide="0"] { animation: hero-s0 15s infinite; }
+.hero-slide[data-slide="1"] { animation: hero-s1 15s infinite; }
+.hero-slide[data-slide="2"] { animation: hero-s2 15s infinite; }
+
+.hero-dot {
+  width: 0.5rem;
+  height: 0.375rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.4);
 }
 
-#hero-s0:checked ~ [data-dot="0"] { width: 2rem; background: #00ACC1; }
-#hero-s1:checked ~ [data-dot="1"] { width: 2rem; background: #00ACC1; }
-#hero-s2:checked ~ [data-dot="2"] { width: 2rem; background: #00ACC1; }
+.hero-dot[data-dot="0"] { animation: dot-s0 15s infinite; }
+.hero-dot[data-dot="1"] { animation: dot-s1 15s infinite; }
+.hero-dot[data-dot="2"] { animation: dot-s2 15s infinite; }
+
+@keyframes hero-s0 {
+  0%, 35% { opacity: 1; pointer-events: auto; }
+  38%, 100% { opacity: 0; pointer-events: none; }
+}
+
+@keyframes hero-s1 {
+  0%, 33% { opacity: 0; pointer-events: none; }
+  35%, 68% { opacity: 1; pointer-events: auto; }
+  71%, 100% { opacity: 0; pointer-events: none; }
+}
+
+@keyframes hero-s2 {
+  0%, 66% { opacity: 0; pointer-events: none; }
+  68%, 100% { opacity: 1; pointer-events: auto; }
+}
+
+@keyframes dot-s0 {
+  0%, 35% { width: 2rem; background: #00ACC1; }
+  38%, 100% { width: 0.5rem; background: rgba(255, 255, 255, 0.4); }
+}
+
+@keyframes dot-s1 {
+  0%, 33% { width: 0.5rem; background: rgba(255, 255, 255, 0.4); }
+  35%, 68% { width: 2rem; background: #00ACC1; }
+  71%, 100% { width: 0.5rem; background: rgba(255, 255, 255, 0.4); }
+}
+
+@keyframes dot-s2 {
+  0%, 66% { width: 0.5rem; background: rgba(255, 255, 255, 0.4); }
+  68%, 100% { width: 2rem; background: #00ACC1; }
+}
 
 @keyframes slide-up {
   from { opacity: 0; transform: translateY(2rem); }

@@ -125,6 +125,19 @@ export function Contact() {
                 ))}
               </dl>
             </div>
+
+            <div className="rounded-xl overflow-hidden border border-border">
+              <iframe
+                src="https://www.google.com/maps?q=13+Antrim+Road+Belfast+BT15+2BE&output=embed"
+                width="100%"
+                height="220"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="C Murray Optician location"
+              />
+            </div>
           </div>
 
           <div id="book" className="p-6 md:p-8 rounded-xl bg-warm border border-border">
