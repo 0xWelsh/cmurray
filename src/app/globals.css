@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-cyan: #00ACC1;
+  --color-cyan-dark: #008394;
+  --color-cyan-light: #E0F7FA;
+  --color-charcoal: #1A1A1A;
+  --color-muted: #6B7280;
+  --color-warm: #F8F9FA;
+  --color-border: #E5E7EB;
+
+  --font-heading: var(--font-heading-family), serif;
+  --font-body: var(--font-body-family), sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-charcoal font-body antialiased;
+  }
+
+  ::selection {
+    @apply bg-cyan/20 text-charcoal;
+  }
+}
+
+@layer components {
+  .heading-xl {
+    @apply font-heading text-[clamp(2.25rem,5vw,4rem)] leading-[1.1] tracking-[-0.02em] text-charcoal;
+  }
+
+  .heading-lg {
+    @apply font-heading text-[clamp(1.75rem,3.5vw,2.75rem)] leading-[1.15] tracking-[-0.01em] text-charcoal;
+  }
+
+  .heading-md {
+    @apply font-heading text-[clamp(1.25rem,2.5vw,1.75rem)] leading-[1.25] text-charcoal;
+  }
+
+  .heading-sm {
+    @apply font-heading text-lg leading-[1.3] text-charcoal;
+  }
+
+  .body-lg {
+    @apply text-[1.0625rem] leading-[1.65] text-charcoal;
+  }
+
+  .body-base {
+    @apply text-base leading-[1.65] text-charcoal;
+  }
+
+  .label {
+    @apply text-xs font-medium uppercase tracking-[0.08em] text-muted;
+  }
+
+  .label-accent {
+    @apply text-xs font-medium uppercase tracking-[0.08em] text-cyan;
+  }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(1.5rem); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.8s ease-out both;
+}
+
+.animation-delay-200 { animation-delay: 0.2s; }
+.animation-delay-400 { animation-delay: 0.4s; }
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(2rem); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(2rem);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
