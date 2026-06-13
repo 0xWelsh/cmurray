@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Container } from "@/components/layout/container";
 
 const stats = [
@@ -12,12 +11,16 @@ export function TrustSection() {
     <section className="py-20 md:py-28 bg-warm">
       <Container>
         <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-          <div className="relative aspect-square w-full max-w-md mx-auto rounded-full overflow-hidden bg-cyan/5">
-            <Image
-              src="/carmel.webp"
-              alt="C Murray Optician practice"
-              fill
-              className="object-cover"
+          <div className="rounded-xl overflow-hidden border border-border shadow-sm h-[300px] md:h-[400px]">
+            <iframe
+              src="https://www.google.com/maps?q=13+Antrim+Road+Belfast+BT15+2BE&output=embed"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="C Murray Optician location"
             />
           </div>
 
