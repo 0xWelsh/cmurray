@@ -3,9 +3,18 @@ import { PageBanner } from "@/components/layout/page-banner";
 import { Container } from "@/components/layout/container";
 
 const brands = [
-  "Moleskine", "Guess", "Jasper Conran", "ProDesign",
-  "Ray-Ban", "Oakley", "Maui Jim", "Etnia Barcelona",
-  "Face à Face", "Lindberg", "Oliver Peoples", "Tom Ford",
+  { name: "Moleskine", domain: "moleskine.com" },
+  { name: "Guess", domain: "guess.com" },
+  { name: "Jasper Conran", domain: "jasperconran.com" },
+  { name: "ProDesign", domain: "prod.dk" },
+  { name: "Ray-Ban", domain: "ray-ban.com" },
+  { name: "Oakley", domain: "oakley.com" },
+  { name: "Maui Jim", domain: "mauijim.com" },
+  { name: "Etnia Barcelona", domain: "etniabarcelona.com" },
+  { name: "Face à Face", domain: "faceaface.com" },
+  { name: "Lindberg", domain: "lindberg.com" },
+  { name: "Oliver Peoples", domain: "oliverpeoples.com" },
+  { name: "Tom Ford", domain: "tomford.com" },
 ];
 
 export default function EyewearPage() {
@@ -65,12 +74,16 @@ export default function EyewearPage() {
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
             {brands.map((brand) => (
               <div
-                key={brand}
-                className="p-5 bg-white rounded-xl border border-border text-center"
+                key={brand.name}
+                className="p-5 bg-white rounded-xl border border-border flex items-center justify-center min-h-[80px]"
               >
-                <span className="text-sm font-medium text-cyan">
-                  {brand}
-                </span>
+                <Image
+                  src={`https://www.google.com/s2/favicons?domain=${brand.domain}&sz=64`}
+                  alt={brand.name}
+                  width={64}
+                  height={64}
+                  className="object-contain"
+                />
               </div>
             ))}
           </div>
