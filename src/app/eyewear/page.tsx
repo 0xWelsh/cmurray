@@ -1,15 +1,7 @@
 import Image from "next/image";
 import { PageBanner } from "@/components/layout/page-banner";
 import { Container } from "@/components/layout/container";
-
-const brands = [
-  { name: "Moleskine", logo: "/images/eyewear_logo/moleskine-vector-logo-e1585780442341.webp" },
-  { name: "Guess", logo: "/images/eyewear_logo/guess.webp" },
-  { name: "Jasper Conran", logo: "/images/eyewear_logo/jasper_conran.webp" },
-  { name: "ProDesign", logo: "/images/eyewear_logo/prodesign.webp" },
-  { name: "Charles Stone", logo: "/images/eyewear_logo/charles_stone.webp" },
-  { name: "Woow", logo: "/images/eyewear_logo/woow.webp" },
-];
+import { BrandLogosScroll } from "@/components/sections/brand-logos-scroll";
 
 export default function EyewearPage() {
   return (
@@ -65,24 +57,7 @@ export default function EyewearPage() {
             <p className="label-accent mb-4">Designer Brands</p>
             <h2 className="heading-lg">Brands we stock</h2>
           </div>
-          <div className="overflow-x-auto pb-2">
-            <div className="flex gap-6 w-max">
-              {brands.map((brand) => (
-                <div
-                  key={brand.name}
-                  className="p-6 bg-white rounded-xl border border-border flex items-center justify-center min-h-[120px] min-w-[180px]"
-                >
-                  <Image
-                    src={brand.logo}
-                    alt={brand.name}
-                    width={160}
-                    height={80}
-                    className="object-contain h-14 w-auto"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
+          <BrandLogosScroll />
           <p className="text-sm text-muted mt-8 text-center">
             With new ranges and new brands arriving on a regular basis.
           </p>
