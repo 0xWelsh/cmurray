@@ -3,18 +3,12 @@ import { PageBanner } from "@/components/layout/page-banner";
 import { Container } from "@/components/layout/container";
 
 const brands = [
-  { name: "Moleskine", domain: "moleskine.com" },
-  { name: "Guess", domain: "guess.com" },
-  { name: "Jasper Conran", domain: "jasperconran.com" },
-  { name: "ProDesign", domain: "prod.dk" },
-  { name: "Ray-Ban", domain: "ray-ban.com" },
-  { name: "Oakley", domain: "oakley.com" },
-  { name: "Maui Jim", domain: "mauijim.com" },
-  { name: "Etnia Barcelona", domain: "etniabarcelona.com" },
-  { name: "Face à Face", domain: "faceaface.com" },
-  { name: "Lindberg", domain: "lindberg.com" },
-  { name: "Oliver Peoples", domain: "oliverpeoples.com" },
-  { name: "Tom Ford", domain: "tomford.com" },
+  { name: "Moleskine", logo: "/images/eyewear_logo/moleskine-vector-logo-e1585780442341.webp" },
+  { name: "Guess", logo: "/images/eyewear_logo/guess.webp" },
+  { name: "Jasper Conran", logo: "/images/eyewear_logo/jasper_conran.webp" },
+  { name: "ProDesign", logo: "/images/eyewear_logo/prodesign.webp" },
+  { name: "Charles Stone", logo: "/images/eyewear_logo/charles_stone.webp" },
+  { name: "Woow", logo: "/images/eyewear_logo/woow.webp" },
 ];
 
 export default function EyewearPage() {
@@ -78,11 +72,11 @@ export default function EyewearPage() {
                 className="p-5 bg-white rounded-xl border border-border flex items-center justify-center min-h-[80px]"
               >
                 <Image
-                  src={`https://www.google.com/s2/favicons?domain=${brand.domain}&sz=64`}
+                  src={brand.logo}
                   alt={brand.name}
-                  width={64}
-                  height={64}
-                  className="object-contain"
+                  width={100}
+                  height={50}
+                  className="object-contain h-10 w-auto"
                 />
               </div>
             ))}

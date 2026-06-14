@@ -11,10 +11,6 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "i0.wp.com",
       },
-      {
-        protocol: "https",
-        hostname: "www.google.com",
-      },
     ],
   },
 };
