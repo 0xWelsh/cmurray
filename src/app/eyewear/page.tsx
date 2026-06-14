@@ -65,21 +65,23 @@ export default function EyewearPage() {
             <p className="label-accent mb-4">Designer Brands</p>
             <h2 className="heading-lg">Brands we stock</h2>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-            {brands.map((brand) => (
-              <div
-                key={brand.name}
-                className="p-5 bg-white rounded-xl border border-border flex items-center justify-center min-h-[80px]"
-              >
-                <Image
-                  src={brand.logo}
-                  alt={brand.name}
-                  width={100}
-                  height={50}
-                  className="object-contain h-10 w-auto"
-                />
-              </div>
-            ))}
+          <div className="overflow-x-auto pb-2">
+            <div className="flex gap-6 w-max">
+              {brands.map((brand) => (
+                <div
+                  key={brand.name}
+                  className="p-6 bg-white rounded-xl border border-border flex items-center justify-center min-h-[120px] min-w-[180px]"
+                >
+                  <Image
+                    src={brand.logo}
+                    alt={brand.name}
+                    width={160}
+                    height={80}
+                    className="object-contain h-14 w-auto"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
           <p className="text-sm text-muted mt-8 text-center">
             With new ranges and new brands arriving on a regular basis.
