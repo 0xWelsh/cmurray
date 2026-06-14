@@ -6,11 +6,12 @@ import { cn } from "@/lib/utils";
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/#about" },
-  { label: "Eye Care", href: "/#services" },
-  { label: "Eyewear", href: "/#services" },
-  { label: "Contact Lenses", href: "/#services" },
-  { label: "Contact", href: "/#contact" },
+  { label: "About Us", href: "/about" },
+  { label: "Eye Examinations", href: "/eye-examinations" },
+  { label: "Eye Wear", href: "/eyewear" },
+  { label: "Contact Lenses", href: "/contact-lenses" },
+  { label: "Children & Young Adults", href: "/children-young-adults" },
+  { label: "Visual Stress", href: "/visual-stress-assessment" },
 ];
 
 type MobileNavProps = {
@@ -99,7 +100,7 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
 
           <div className="mt-8 pt-8 border-t border-border">
             <a
-              href="/#book"
+              href="/book-online"
               onClick={onClose}
               className="flex items-center justify-center gap-2 w-full px-5 py-3 bg-cyan text-white text-sm font-medium rounded-lg hover:bg-cyan-dark transition-colors"
             >

@@ -8,26 +8,25 @@ import { MobileNav } from "./mobile-nav";
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/#about" },
+  { label: "About Us", href: "/about" },
   {
-    label: "Eye Care",
-    href: "/#services",
+    label: "Services",
+    href: "/eye-examinations",
     children: [
-      { label: "Eye Examinations", href: "/#services" },
-      { label: "Children's Eye Care", href: "/#children" },
-      { label: "Visual Stress", href: "/#services" },
-      { label: "Contact Lenses", href: "/#services" },
+      { label: "Eye Examinations", href: "/eye-examinations" },
+      { label: "Contact Lenses", href: "/contact-lenses" },
+      { label: "Children & Young Adults", href: "/children-young-adults" },
+      { label: "Visual Stress", href: "/visual-stress-assessment" },
     ],
   },
   {
-    label: "Eyewear",
-    href: "/#services",
+    label: "Eye Wear",
+    href: "/eyewear",
     children: [
-      { label: "Adults", href: "/#services" },
-      { label: "Children", href: "/#services" },
+      { label: "Eye Wear", href: "/eyewear" },
+      { label: "Children's Eyewear", href: "/eyewear/children" },
     ],
   },
-  { label: "Contact", href: "/#contact" },
 ];
 
 export function Header() {
@@ -43,7 +42,7 @@ export function Header() {
               <Image src="/logo.webp" alt="Murray Optician" width={180} height={73} className="h-10 md:h-12 w-auto" priority />
             </a>
 
-            <nav className="hidden lg:flex items-center gap-1">
+            <nav className="hidden lg:flex items-center gap-0.5">
               {navLinks.map((link) => (
                 <div
                   key={link.label}
@@ -56,7 +55,7 @@ export function Header() {
                   <a
                     href={link.href}
                     className={cn(
-                      "px-3 py-2 text-sm font-medium rounded-md transition-colors",
+                      "px-3 py-2 text-sm font-medium rounded-md transition-colors whitespace-nowrap",
                       "text-charcoal/80 hover:text-cyan hover:bg-warm"
                     )}
                   >
@@ -85,7 +84,7 @@ export function Header() {
                           <a
                             key={child.label}
                             href={child.href}
-                            className="block px-4 py-2 text-sm text-charcoal/80 hover:text-cyan hover:bg-warm transition-colors"
+                            className="block px-4 py-2 text-sm text-charcoal/80 hover:text-cyan hover:bg-warm transition-colors whitespace-nowrap"
                           >
                             {child.label}
                           </a>
@@ -98,35 +97,35 @@ export function Header() {
 
               <a
                 href="/book-online"
-                className="ml-4 inline-flex items-center gap-2 px-5 py-2.5 bg-cyan text-white text-sm font-medium rounded-lg hover:bg-cyan-dark transition-colors"
+                className="ml-3 inline-flex items-center gap-2 px-5 py-2.5 bg-cyan text-white text-sm font-medium rounded-lg hover:bg-cyan-dark transition-colors"
               >
                 Book Appointment
                 <svg className="w-4 h-4" viewBox="0 0 16 16" fill="none">
-                  <path
-                    d="M4 12L12 4M12 4H6M12 4V10"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
+                  <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </a>
             </nav>
 
-            <button
-              onClick={() => setMobileOpen(true)}
-              className="lg:hidden p-2 -mr-2 text-charcoal"
-              aria-label="Open menu"
-            >
-              <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none">
-                <path
-                  d="M4 6h16M4 12h16M4 18h16"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </button>
+            <div className="flex lg:hidden items-center gap-3">
+              <a
+                href="/book-online"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-cyan text-white text-sm font-medium rounded-lg hover:bg-cyan-dark transition-colors"
+              >
+                Book
+                <svg className="w-4 h-4" viewBox="0 0 16 16" fill="none">
+                  <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </a>
+              <button
+                onClick={() => setMobileOpen(true)}
+                className="p-2 -mr-2 text-charcoal"
+                aria-label="Open menu"
+              >
+                <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none">
+                  <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                </svg>
+              </button>
+            </div>
           </div>
         </Container>
       </header>

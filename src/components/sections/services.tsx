@@ -7,28 +7,28 @@ const services = [
     description:
       "Comprehensive eye exams using the latest diagnostic technology. We take the time to get your prescription right.",
     href: "/eye-examinations",
-    img: "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=600&q=80",
+    icon: "https://i0.wp.com/cmurrayoptician.com/wp-content/uploads/2020/03/eye-exam.png?fit=300%2C300&ssl=1",
   },
   {
     title: "Designer Eyewear",
     description:
       "Curated frames from leading designers. Professional fitting advice for your face shape, colouring, and budget.",
     href: "/eyewear",
-    img: "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=600&q=80",
+    icon: "https://i0.wp.com/cmurrayoptician.com/wp-content/uploads/2020/03/glasses.png?fit=512%2C512&ssl=1",
   },
   {
     title: "Contact Lenses",
     description:
       "Hundreds of lens types available. Trial fittings, aftercare, and direct-to-home delivery for your convenience.",
     href: "/contact-lenses",
-    img: "https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=600&q=80",
+    icon: "https://i0.wp.com/cmurrayoptician.com/wp-content/uploads/2020/03/eye.png?fit=512%2C512&ssl=1",
   },
   {
     title: "Children&apos;s Eye Care",
     description:
       "Specialist paediatric eye care from an accredited children's vision practitioner. Gentle, thorough, and fun.",
     href: "/children-young-adults",
-    img: "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=600&q=80",
+    icon: "https://i0.wp.com/cmurrayoptician.com/wp-content/uploads/2020/03/children.png?fit=512%2C512&ssl=1",
   },
 ];
 
@@ -48,35 +48,33 @@ export function Services() {
             <a
               key={service.title}
               href={service.href}
-              className="group relative bg-warm rounded-xl border border-border hover:border-charcoal/15 transition-all overflow-hidden"
+              className="group p-6 bg-warm rounded-xl border border-border hover:border-cyan/30 hover:shadow-sm transition-all"
             >
-              <div className="aspect-[4/3] overflow-hidden">
+              <div className="w-14 h-14 rounded-xl bg-white border border-border flex items-center justify-center mb-5 group-hover:border-cyan/20 transition-colors">
                 <Image
-                  src={service.img}
-                  alt={service.title}
-                  width={600}
-                  height={450}
-                  className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  src={service.icon}
+                  alt=""
+                  width={36}
+                  height={36}
+                  className="w-8 h-8 object-contain"
                 />
               </div>
-              <div className="p-5">
-                <h3 className="heading-sm mb-2">{service.title}</h3>
-                <p className="text-sm leading-relaxed text-muted">
-                  {service.description}
-                </p>
-                <span className="inline-flex items-center gap-1 mt-4 text-sm font-medium text-cyan group-hover:gap-2 transition-all">
-                  Learn more
-                  <svg className="w-3 h-3" viewBox="0 0 12 12" fill="none">
-                    <path
-                      d="M2 6h8M6 2l4 4-4 4"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </span>
-              </div>
+              <h3 className="heading-sm mb-2">{service.title}</h3>
+              <p className="text-sm leading-relaxed text-muted">
+                {service.description}
+              </p>
+              <span className="inline-flex items-center gap-1 mt-4 text-sm font-medium text-cyan group-hover:gap-2 transition-all">
+                Learn more
+                <svg className="w-3 h-3" viewBox="0 0 12 12" fill="none">
+                  <path
+                    d="M2 6h8M6 2l4 4-4 4"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </span>
             </a>
           ))}
         </div>
