@@ -1,8 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, type FormEvent } from "react";
 import { PageBanner } from "@/components/layout/page-banner";
 import { Container } from "@/components/layout/container";
+
+const ACCESS_KEY = "9f2f20de-965c-4924-aaa4-0b9dd6282c0d";
 
 const appointmentTypes = [
   { value: "eye-exam", label: "Eye Examination (Adult)" },
@@ -14,6 +16,46 @@ const appointmentTypes = [
 
 export default function BookOnlinePage() {
   const [selectedType, setSelectedType] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const formRef = useRef<HTMLFormElement>(null);
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+
+    const data = Object.fromEntries(new FormData(e.currentTarget));
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...data,
+          appointment_type: selectedType
+            ? appointmentTypes.find((t) => t.value === selectedType)?.label
+            : "Not specified",
+          subject: "Appointment Request - Website",
+        }),
+      });
+
+      const result = await res.json();
+
+      if (result.success) {
+        setSubmitted(true);
+        setSelectedType("");
+        formRef.current?.reset();
+      } else {
+        setError(result.message || "Failed to send. Please try again.");
+      }
+    } catch {
+      setError("Network error. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  }
 
   return (
     <>
@@ -57,60 +99,92 @@ export default function BookOnlinePage() {
                 <h2 className="heading-lg mb-2">
                   Your details
                 </h2>
-                <form className="space-y-4 mt-6">
-                  <div className="grid sm:grid-cols-2 gap-4">
+                {submitted ? (
+                  <div className="p-6 rounded-xl bg-green-50 border border-green-200 text-center mt-6">
+                    <p className="text-green-800 font-medium">Appointment request sent!</p>
+                    <p className="text-sm text-green-700 mt-1">
+                      We&apos;ll get back to you within 24 hours to confirm.
+                    </p>
+                    <button
+                      onClick={() => {
+                        setSubmitted(false);
+                        setError(null);
+                      }}
+                      className="mt-4 text-sm text-green-700 underline hover:no-underline"
+                    >
+                      Book another appointment
+                    </button>
+                  </div>
+                ) : (
+                  <form ref={formRef} onSubmit={handleSubmit} className="space-y-4 mt-6">
+                    <input type="hidden" name="access_key" value={ACCESS_KEY} />
+                    <input type="checkbox" name="botcheck" className="hidden" style={{ display: "none" }} />
+
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <div>
+                        <label htmlFor="book-name" className="label block mb-1.5">
+                          Full Name
+                        </label>
+                        <input
+                          type="text"
+                          id="book-name"
+                          name="name"
+                          required
+                          placeholder="Your name"
+                          className="w-full px-4 py-2.5 text-sm bg-white border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-cyan transition-colors"
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="book-email" className="label block mb-1.5">
+                          Email Address
+                        </label>
+                        <input
+                          type="email"
+                          id="book-email"
+                          name="email"
+                          required
+                          placeholder="your@email.com"
+                          className="w-full px-4 py-2.5 text-sm bg-white border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-cyan transition-colors"
+                        />
+                      </div>
+                    </div>
                     <div>
-                      <label htmlFor="book-name" className="label block mb-1.5">
-                        Full Name
+                      <label htmlFor="book-phone" className="label block mb-1.5">
+                        Phone Number
                       </label>
                       <input
-                        type="text"
-                        id="book-name"
-                        placeholder="Your name"
+                        type="tel"
+                        id="book-phone"
+                        name="phone"
+                        required
+                        placeholder="Your phone number"
                         className="w-full px-4 py-2.5 text-sm bg-white border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-cyan transition-colors"
                       />
                     </div>
                     <div>
-                      <label htmlFor="book-email" className="label block mb-1.5">
-                        Email Address
+                      <label htmlFor="book-message" className="label block mb-1.5">
+                        Notes (optional)
                       </label>
-                      <input
-                        type="email"
-                        id="book-email"
-                        placeholder="your@email.com"
-                        className="w-full px-4 py-2.5 text-sm bg-white border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-cyan transition-colors"
+                      <textarea
+                        id="book-message"
+                        name="notes"
+                        rows={3}
+                        placeholder="Any specific concerns or preferred times?"
+                        className="w-full px-4 py-2.5 text-sm bg-white border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-cyan transition-colors resize-none"
                       />
                     </div>
-                  </div>
-                  <div>
-                    <label htmlFor="book-phone" className="label block mb-1.5">
-                      Phone Number
-                    </label>
-                    <input
-                      type="tel"
-                      id="book-phone"
-                      placeholder="Your phone number"
-                      className="w-full px-4 py-2.5 text-sm bg-white border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-cyan transition-colors"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="book-message" className="label block mb-1.5">
-                      Notes (optional)
-                    </label>
-                    <textarea
-                      id="book-message"
-                      rows={3}
-                      placeholder="Any specific concerns or preferred times?"
-                      className="w-full px-4 py-2.5 text-sm bg-white border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-cyan transition-colors resize-none"
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full px-6 py-3 bg-cyan text-white text-sm font-medium rounded-lg hover:bg-cyan-dark transition-colors"
-                  >
-                    Request Appointment
-                  </button>
-                </form>
+
+                    {error && <p className="text-sm text-red-600">{error}</p>}
+
+                    <button
+                      type="submit"
+                      disabled={loading || !selectedType}
+                      className="w-full px-6 py-3 bg-cyan text-white text-sm font-medium rounded-lg hover:bg-cyan-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {loading ? "Sending..." : "Request Appointment"}
+                    </button>
+                  </form>
+                )}
               </div>
 
               <div className="p-5 rounded-xl bg-warm border border-border text-sm text-muted">
@@ -119,10 +193,10 @@ export default function BookOnlinePage() {
                 </strong>
                 We&apos;re happy to help over the phone. Call us on{" "}
                 <a
-                  href="tel:+442890741122"
+                  href="tel:+44112345678"
                   className="text-cyan font-medium hover:underline"
                 >
-                  028 90 74 11 22
+                  020 1234 5678
                 </a>{" "}
                 during opening hours.
               </div>

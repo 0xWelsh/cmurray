@@ -77,7 +77,7 @@ export default function DesignerBrandsPage() {
               Not sure which frames suit you?
             </h2>
             <p className="body-base text-white/70">
-              Book a styling appointment with Gemma. She&apos;ll help you
+              Book a styling appointment with Emma. She&apos;ll help you
               find frames that match your face shape, colouring, and style.
             </p>
             <a

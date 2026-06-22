@@ -85,7 +85,7 @@ export default function VisualStressPage() {
               Think you or your child might have visual stress?
             </h2>
             <p className="text-muted body-base">
-              Carmel has specific expertise in this area and can perform a
+              Dr. Chen has specific expertise in this area and can perform a
               thorough assessment. Many cases of reading difficulty are
               linked to visual stress — not a lack of effort.
             </p>

@@ -2,26 +2,26 @@ import Image from "next/image";
 import { Container } from "@/components/layout/container";
 
 const lead = {
-  name: "Carmel Murray",
+  name: "Dr. Alex Chen",
   role: "Principal Optometrist",
-  qualification: "Independent Prescriber · Prof Cert in Paediatric Eye Care",
+  qualification: "BSc (Hons) · MCOptom · Dip Tp (IP)",
   description:
-    "Carmel has developed specific expertise in children's vision and the management of visual stress using coloured filters. She is committed to providing personalised, thorough eye care for every patient who walks through the door.",
+    "Dr. Chen has developed specific expertise in children's vision and the management of visual stress using coloured filters. He is committed to providing personalised, thorough eye care for every patient who walks through the door.",
   img: "/carmel.webp",
 };
 
 const team = [
   {
-    name: "Cathy",
-    role: "Optical Receptionist",
+    name: "Sarah Mitchell",
+    role: "Practice Coordinator",
     description:
-      "With a background in finance, Cathy brings the same eye for detail to practice operations. Calm and reassuring, she sees patients as friends.",
+      "With a background in healthcare administration, Sarah brings warmth and efficiency to every patient interaction. Calm and reassuring, she sees patients as friends.",
   },
   {
-    name: "Gemma",
+    name: "Emma Roberts",
     role: "Optical Stylist",
     description:
-      "A UK-wide 'Spectacle Wearer of the Year' winner. Gemma loves helping clients find frames that suit their face, lifestyle, and budget.",
+      "Emma has a passion for eyewear fashion and loves helping clients find frames that suit their face, lifestyle, and budget. She stays up to date with the latest trends and styles.",
   },
 ];
 

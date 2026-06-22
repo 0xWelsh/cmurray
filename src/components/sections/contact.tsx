@@ -1,6 +1,46 @@
+"use client";
+
+import { useState, useRef, type FormEvent } from "react";
 import { Container } from "@/components/layout/container";
 
+const ACCESS_KEY = "9f2f20de-965c-4924-aaa4-0b9dd6282c0d";
+
 export function Contact() {
+  const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const formRef = useRef<HTMLFormElement>(null);
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+
+    const form = e.currentTarget;
+    const data = Object.fromEntries(new FormData(form));
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...data, subject: "Appointment Request - Homepage" }),
+      });
+
+      const result = await res.json();
+
+      if (result.success) {
+        setSubmitted(true);
+        formRef.current?.reset();
+      } else {
+        setError(result.message || "Failed to send. Please try again.");
+      }
+    } catch {
+      setError("Network error. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  }
+
   return (
     <section id="contact" className="py-16 md:py-20 lg:py-24 bg-white">
       <Container>
@@ -38,12 +78,12 @@ export function Contact() {
                 <div>
                   <h3 className="heading-sm mb-1">Visit us</h3>
                   <p className="text-sm text-muted leading-relaxed">
-                    13 Antrim Road
+                    123 High Street
                     <br />
-                    Belfast, BT15 2BE
+                    London, EC1A 1BB
                   </p>
                   <p className="text-xs text-muted mt-1">
-                    Near the Mater Hospital · Easy access from West Link
+                    City Centre · Easy access from public transport
                   </p>
                 </div>
               </div>
@@ -66,10 +106,10 @@ export function Contact() {
                 <div>
                   <h3 className="heading-sm mb-1">Email us</h3>
                   <a
-                    href="mailto:info@cmurrayoptician.com"
+                    href="mailto:hello@owenopticians.com"
                     className="text-sm text-muted hover:text-cyan transition-colors"
                   >
-                    info@cmurrayoptician.com
+                    hello@owenopticians.com
                   </a>
                 </div>
               </div>
@@ -98,13 +138,13 @@ export function Contact() {
                 <div>
                   <h3 className="heading-sm mb-1">Call us</h3>
                   <a
-                    href="tel:+442890741122"
+                    href="tel:+44112345678"
                     className="text-sm text-muted hover:text-cyan transition-colors"
                   >
-                    028 90 74 11 22
+                    020 1234 5678
                   </a>
                   <p className="text-xs text-muted mt-0.5">
-                    Mobile: 075 574 344 65
+                    Mobile: 077 1234 5678
                   </p>
                 </div>
               </div>
@@ -128,14 +168,14 @@ export function Contact() {
 
             <div className="rounded-xl overflow-hidden border border-border">
               <iframe
-                src="https://www.google.com/maps?q=13+Antrim+Road+Belfast+BT15+2BE&output=embed"
+                src="https://www.google.com/maps?q=London&output=embed"
                 width="100%"
                 height="220"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="C Murray Optician location"
+                title="OWEN opticians location"
               />
             </div>
           </div>
@@ -145,60 +185,95 @@ export function Contact() {
             <p className="text-sm text-muted mb-6">
               Fill in the form and we&apos;ll get back to you within 24 hours.
             </p>
-            <form className="space-y-4">
-              <div className="grid sm:grid-cols-2 gap-4">
+            {submitted ? (
+              <div className="p-6 rounded-xl bg-green-50 border border-green-200 text-center">
+                <p className="text-green-800 font-medium">Thanks for your message!</p>
+                <p className="text-sm text-green-700 mt-1">
+                  We&apos;ll get back to you within 24 hours.
+                </p>
+                <button
+                  onClick={() => {
+                    setSubmitted(false);
+                    setError(null);
+                  }}
+                  className="mt-4 text-sm text-green-700 underline hover:no-underline"
+                >
+                  Send another message
+                </button>
+              </div>
+            ) : (
+              <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
+                <input type="hidden" name="access_key" value={ACCESS_KEY} />
+                <input type="hidden" name="subject" value="Appointment Request - Website" />
+                <input type="checkbox" name="botcheck" className="hidden" style={{ display: "none" }} />
+
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="hp-name" className="label block mb-1.5">
+                      Name
+                    </label>
+                    <input
+                      type="text"
+                      id="hp-name"
+                      name="name"
+                      required
+                      placeholder="Your name"
+                      className="w-full px-4 py-2.5 text-sm bg-white border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-cyan transition-colors"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="hp-email" className="label block mb-1.5">
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      id="hp-email"
+                      name="email"
+                      required
+                      placeholder="your@email.com"
+                      className="w-full px-4 py-2.5 text-sm bg-white border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-cyan transition-colors"
+                    />
+                  </div>
+                </div>
                 <div>
-                  <label htmlFor="name" className="label block mb-1.5">
-                    Name
+                  <label htmlFor="hp-phone" className="label block mb-1.5">
+                    Phone
                   </label>
                   <input
-                    type="text"
-                    id="name"
-                    placeholder="Your name"
+                    type="tel"
+                    id="hp-phone"
+                    name="phone"
+                    placeholder="Your phone number"
                     className="w-full px-4 py-2.5 text-sm bg-white border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-cyan transition-colors"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="label block mb-1.5">
-                    Email
+                  <label htmlFor="hp-message" className="label block mb-1.5">
+                    Message
                   </label>
-                  <input
-                    type="email"
-                    id="email"
-                    placeholder="your@email.com"
-                    className="w-full px-4 py-2.5 text-sm bg-white border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-cyan transition-colors"
+                  <textarea
+                    id="hp-message"
+                    name="message"
+                    rows={4}
+                    required
+                    placeholder="Tell us what you need..."
+                    className="w-full px-4 py-2.5 text-sm bg-white border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-cyan transition-colors resize-none"
                   />
                 </div>
-              </div>
-              <div>
-                <label htmlFor="phone" className="label block mb-1.5">
-                  Phone
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  placeholder="Your phone number"
-                  className="w-full px-4 py-2.5 text-sm bg-white border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-cyan transition-colors"
-                />
-              </div>
-              <div>
-                <label htmlFor="message" className="label block mb-1.5">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  rows={4}
-                  placeholder="Tell us what you need..."
-                  className="w-full px-4 py-2.5 text-sm bg-white border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-cyan transition-colors resize-none"
-                />
-              </div>
-              <button
-                type="submit"
-                className="w-full px-6 py-3 bg-cyan text-white text-sm font-medium rounded-lg hover:bg-cyan-dark transition-colors"
-              >
-                Send Message
-              </button>
-            </form>
+
+                {error && (
+                  <p className="text-sm text-red-600">{error}</p>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full px-6 py-3 bg-cyan text-white text-sm font-medium rounded-lg hover:bg-cyan-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {loading ? "Sending..." : "Send Message"}
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </Container>

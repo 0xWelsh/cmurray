@@ -26,8 +26,8 @@ export function ChildrenSpotlight() {
               the same care as yours
             </h2>
             <p className="body-lg text-muted">
-              Carmel holds a Professional Certificate in Paediatric Eye Care
-              and has a special interest in seeing children. She knows how to
+              Dr. Chen holds a Professional Certificate in Paediatric Eye Care
+              and has a special interest in seeing children. He knows how to
               make an eye exam feel like play, not a test.
             </p>
             <ul className="space-y-3">

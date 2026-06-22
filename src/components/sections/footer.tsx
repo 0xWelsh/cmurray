@@ -7,13 +7,13 @@ export function Footer() {
       <Container className="py-12 md:py-16">
         <div className="grid md:grid-cols-3 gap-10">
           <div className="space-y-4">
-            <Image src="/images/logo.png" alt="Murray Optician" width={200} height={82} className="h-14 md:h-16 w-auto" />
+            <Image src="/images/logo.png" alt="OWEN opticians" width={200} height={82} className="h-14 md:h-16 w-auto" />
             <p className="text-sm leading-relaxed text-muted max-w-xs">
-              Serving Antrim Road families since 2006. Personalised,
-              outstanding eye care for the whole family.
+              Professional, personalised eye care for the whole family.
+              Comprehensive examinations, designer eyewear, and specialist care.
             </p>
             <p className="text-xs text-muted/60">
-              &copy; {new Date().getFullYear()} C Murray Optician
+              &copy; {new Date().getFullYear()} OWEN opticians
             </p>
           </div>
 
@@ -22,22 +22,22 @@ export function Footer() {
               Contact
             </h4>
             <address className="text-sm leading-relaxed not-italic text-muted">
-              13 Antrim Road
+              123 High Street
               <br />
-              Belfast, BT15 2BE
+              London, EC1A 1BB
               <br />
               <a
-                href="tel:+442890741122"
+                href="tel:+44112345678"
                 className="hover:text-cyan transition-colors"
               >
-                028 90 74 11 22
+                020 1234 5678
               </a>
               <br />
               <a
-                href="mailto:info@cmurrayoptician.com"
+                href="mailto:hello@owenopticians.com"
                 className="hover:text-cyan transition-colors"
               >
-                info@cmurrayoptician.com
+                hello@owenopticians.com
               </a>
             </address>
           </div>
@@ -48,7 +48,7 @@ export function Footer() {
             </h4>
             <div className="flex gap-3">
               <a
-                href="https://www.facebook.com/cmurrayoptician/"
+                href="#"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-lg bg-cyan/10 flex items-center justify-center hover:bg-cyan/20 transition-colors"
@@ -59,7 +59,7 @@ export function Footer() {
                 </svg>
               </a>
               <a
-                href="https://www.instagram.com/murrayopticiansbelfast/"
+                href="#"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-lg bg-cyan/10 flex items-center justify-center hover:bg-cyan/20 transition-colors"
@@ -70,7 +70,7 @@ export function Footer() {
                 </svg>
               </a>
               <a
-                href="https://twitter.com/cmurrayopt?lang=en"
+                href="#"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-lg bg-cyan/10 flex items-center justify-center hover:bg-cyan/20 transition-colors"
@@ -81,7 +81,7 @@ export function Footer() {
                 </svg>
               </a>
               <a
-                href="https://www.youtube.com/channel/UCmMblPuXTp90AhYMfEzX9eA/"
+                href="#"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-lg bg-cyan/10 flex items-center justify-center hover:bg-cyan/20 transition-colors"
@@ -98,8 +98,7 @@ export function Footer() {
       <div className="border-t border-border py-4">
         <Container>
           <p className="text-xs text-muted/50 text-center">
-            Independent Prescriber Optometrist &amp; Specialist in
-            Children&apos;s Eye Care
+            Premium Opticians — Comprehensive Eye Care for the Whole Family
           </p>
         </Container>
       </div>

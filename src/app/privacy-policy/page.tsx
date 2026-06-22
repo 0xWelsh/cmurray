@@ -13,7 +13,7 @@ export default function PrivacyPage() {
         <Container>
           <div className="max-w-3xl mx-auto prose prose-sm text-muted space-y-8">
             <p className="body-base">
-              C Murray Optician is committed to protecting your privacy. This
+              OWEN opticians is committed to protecting your privacy. This
               policy explains how we collect, use, and safeguard your personal
               information when you visit our practice or use our website.
             </p>
@@ -63,10 +63,10 @@ export default function PrivacyPage() {
               <p className="text-sm leading-relaxed">
                 For any questions about this policy or how we handle your data,
                 please contact us at{" "}
-                <a href="mailto:info@cmurrayoptician.com" className="text-cyan hover:underline">
-                  info@cmurrayoptician.com
+                <a href="mailto:hello@owenopticians.com" className="text-cyan hover:underline">
+                  hello@owenopticians.com
                 </a>{" "}
-                or call 028 90 74 11 22.
+                or call 020 1234 5678.
               </p>
             </div>
           </div>

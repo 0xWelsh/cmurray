@@ -45,7 +45,7 @@ export default function Home() {
                   <circle cx="30" cy="24" r="3.5" fill="currentColor" fillOpacity="0.15" />
                 </svg>
               </div>
-              <span className="text-sm md:text-base font-medium text-charcoal leading-tight">Contact Sales</span>
+              <span className="text-sm md:text-base font-medium text-charcoal leading-tight">Contact Lenses</span>
             </a>
             <a href="/children-young-adults" className="flex items-center gap-3 bg-white rounded-xl border border-border hover:border-cyan/30 shadow-sm hover:shadow-md transition-all px-4 py-3.5 md:px-5 md:py-4">
               <div className="w-10 h-10 shrink-0 rounded-lg bg-cyan-light/60 flex items-center justify-center text-cyan">

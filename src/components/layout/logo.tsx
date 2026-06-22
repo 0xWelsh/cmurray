@@ -6,7 +6,7 @@ export function Logo({ className, inverted }: { className?: string; inverted?: b
 
   return (
     <span className={`${textClass} ${className || ""}`}>
-      Murray<span className="text-cyan"> Optician</span>
+      OWEN<span className="text-cyan"> opticians</span>
     </span>
   );
 }

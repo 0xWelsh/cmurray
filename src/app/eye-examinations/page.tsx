@@ -72,7 +72,7 @@ export default function EyeExaminationsPage() {
             <div className="space-y-5 order-2 lg:order-1">
               <h2 className="heading-lg">Independent Prescriber</h2>
               <p className="text-muted body-base">
-                As an Independent Prescriber, Carmel can assess, diagnose,
+                As an Independent Prescriber, Dr. Chen can assess, diagnose,
                 and prescribe for a range of eye conditions directly — no
                 need for a separate GP or hospital appointment for many
                 common issues.
@@ -112,10 +112,10 @@ export default function EyeExaminationsPage() {
                 Book Online
               </a>
               <a
-                href="tel:+442890741122"
+                href="tel:+44112345678"
                 className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-sm font-medium text-charcoal/80 border border-border rounded-lg hover:border-charcoal/20 transition-all"
               >
-                028 90 74 11 22
+                020 1234 5678
               </a>
             </div>
           </div>

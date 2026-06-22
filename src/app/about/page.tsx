@@ -3,33 +3,33 @@ import { Container } from "@/components/layout/container";
 import Image from "next/image";
 
 const lead = {
-  name: "Carmel Murray",
+  name: "Dr. Alex Chen",
   role: "Principal Optometrist",
   qualifications:
     "BSc (Hons) · MCOptom · Dip Tp (IP) · Prof Cert in Paediatric Eye Care",
   description:
-    "Carmel is the founding optometrist of Murray Opticians, established in 2006. Alongside her commitment to the very highest standards in patient care, Carmel has completed a Diploma in Independent Prescribing and achieved a Professional Certificate in Paediatric Eye Care. She has developed specific expertise in the management of visual stress using coloured filters.",
+    "Dr. Chen is the lead optometrist at OWEN opticians, established in 2015. Alongside his commitment to the very highest standards in patient care, Dr. Chen has completed a Diploma in Independent Prescribing and achieved a Professional Certificate in Paediatric Eye Care. He has developed specific expertise in the management of visual stress using coloured filters.",
   img: "/carmel.webp",
 };
 
 const team = [
   {
-    name: "Cathy",
-    role: "Optical Receptionist",
-    description: `Cathy joined our practice in 2014. With previous experience in the field of finance, Cathy has found a very rewarding home in the optical world.
+    name: "Sarah Mitchell",
+    role: "Practice Coordinator",
+    description: `Sarah joined our practice in 2016. With previous experience in healthcare administration, Sarah has found a very rewarding home in the optical world.
 
-The key eye for detail which served her so well in finance is really vital when it comes to the day to day operation of our practice. The mother of two adult sons, Cathy relishes her job here in Murray Opticians.
+The keen eye for detail which served her so well in healthcare is vital when it comes to the day to day operation of our practice.
 
-Calm and reassuring by nature, she sees our regular patients more as friends than customers. Equally she enjoys introducing new clients to the practice. "Working in Murray Opticians is the ideal job for me! Helping patients of all ages sort out their eyecare needs in a friendly and supportive way gives me a real buzz, every time."`,
+Calm and reassuring by nature, she sees our regular patients more as friends than customers. Equally she enjoys introducing new clients to the practice. "Helping patients of all ages sort out their eyecare needs in a friendly and supportive way gives me a real buzz, every time."`,
   },
   {
-    name: "Gemma",
+    name: "Emma Roberts",
     role: "Optical Stylist",
-    description: `Gemma joined the practice in November 2019. Having worked in Specsavers as an Optical Supervisor for many years, she is a natural when it comes to offering excellent patient care.
+    description: `Emma joined the practice in 2019. Having worked as an Optical Supervisor for many years, she is a natural when it comes to offering excellent patient care.
 
-Gemma won a UK wide 'Spectacle Wearer of the Year' competition so she is a dab hand when it comes to helping clients choose frames. She loves keeping up to date with the latest in eyewear fashion.
+Emma is passionate about helping clients choose frames. She loves keeping up to date with the latest in eyewear fashion.
 
-As she says herself: "Advising thousands of clients about frames has given me a real eye for what suits. Seeing a patient smile when they try on their new glasses for the first time is the best ever every time."`,
+As she says herself: "Advising clients about frames has given me a real eye for what suits. Seeing a patient smile when they try on their new glasses for the first time is the best feeling every time."`,
   },
 ];
 
@@ -38,7 +38,7 @@ export default function AboutPage() {
     <>
       <PageBanner
         title="Our Practice &amp; Our Team"
-        subtitle="Get to know the people who will care for your eyes — and the story behind Murray Opticians."
+        subtitle="Get to know the people who will care for your eyes — and the story behind OWEN opticians."
       />
 
       <section className="py-16 md:py-20 bg-white">
@@ -56,20 +56,19 @@ export default function AboutPage() {
             <div className="space-y-5">
               <p className="label-accent">Our Story</p>
               <h2 className="heading-lg">
-                Caring for Belfast eyes since 2006
+                Caring for your eyes since 2015
               </h2>
               <div className="space-y-4 text-muted body-base">
                 <p>
-                  Murray Opticians was established in 2006 by Carmel Murray
+                  OWEN opticians was established in 2015
                   with a simple belief: that every patient deserves
                   personalised, unhurried eye care in a welcoming
                   environment.
                 </p>
                 <p>
-                  Based on the lower Antrim Road, our practice is a bright
+                  Based in the heart of London, our practice is a bright
                   and spacious facility located on the ground floor — easily
-                  accessible from the City Centre, West Link, and other main
-                  routes. On-street parking is available close to the
+                  accessible from public transport. On-street parking is available close to the
                   practice for your convenience.
                 </p>
                 <p>
@@ -150,14 +149,14 @@ export default function AboutPage() {
           <div className="max-w-2xl mx-auto text-center space-y-6">
             <h2 className="heading-lg">Visit us</h2>
             <p className="body-lg text-muted">
-              13 Antrim Road, Belfast, BT15 2BE
+              123 High Street, London, EC1A 1BB
             </p>
             <p className="text-sm text-muted">
-              Near the Mater Hospital · Easy access from West Link ·
+              City Centre · Easy access from public transport ·
               On-street parking available
             </p>
             <a
-              href="https://www.google.com/maps/search/13+Antrim+Road+Belfast+BT15+2BE"
+              href="https://www.google.com/maps/search/123+High+Street+London+EC1A+1BB"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-sm font-medium text-cyan hover:text-cyan-dark transition-colors"

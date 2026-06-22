@@ -7,7 +7,7 @@ export default function WhatToExpectPage() {
     <>
       <PageBanner
         title="What to Expect"
-        subtitle="Your first visit to Murray Opticians — a complete guide so you know exactly what happens."
+        subtitle="Your first visit to OWEN opticians — a complete guide so you know exactly what happens."
       />
 
       <section className="py-16 md:py-20 bg-white">
@@ -39,7 +39,7 @@ export default function WhatToExpectPage() {
               {
                 step: "01",
                 title: "Arrival & registration",
-                desc: "When you arrive, Cathy will greet you and check your details. If you're a new patient, we'll ask for some basic information — nothing complicated.",
+                desc: "When you arrive, Sarah will greet you and check your details. If you're a new patient, we'll ask for some basic information — nothing complicated.",
               },
               {
                 step: "02",
@@ -49,17 +49,17 @@ export default function WhatToExpectPage() {
               {
                 step: "03",
                 title: "The eye examination",
-                desc: "Carmel will examine your eyes thoroughly — checking your prescription, eye health, and looking for early signs of any conditions. You'll look at letters, lights, and through various lenses. There are no tricks, just careful assessment.",
+                desc: "Dr. Chen will examine your eyes thoroughly — checking your prescription, eye health, and looking for early signs of any conditions. You'll look at letters, lights, and through various lenses. There are no tricks, just careful assessment.",
               },
               {
                 step: "04",
                 title: "Discussion & recommendations",
-                desc: "Carmel will explain the results and recommend the best options for your vision — whether that's glasses, contact lenses, or simply reassurance that everything looks healthy.",
+                desc: "Dr. Chen will explain the results and recommend the best options for your vision — whether that's glasses, contact lenses, or simply reassurance that everything looks healthy.",
               },
               {
                 step: "05",
                 title: "Choosing your frames",
-                desc: "If you need glasses, Gemma will help you choose frames that suit your face shape, lifestyle, and budget. No pressure, just honest advice.",
+                desc: "If you need glasses, Emma will help you choose frames that suit your face shape, lifestyle, and budget. No pressure, just honest advice.",
               },
             ].map((item) => (
               <div key={item.step} className="flex gap-6">

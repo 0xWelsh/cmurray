@@ -3,21 +3,21 @@ import { Container } from "@/components/layout/container";
 const testimonials = [
   {
     quote:
-      "I came here, I was seen on time, there was no waiting around, I got my glasses and Carmel said 'If you have any problems with them, drop in anytime.'",
-    name: "Michael",
-    age: 60,
-    location: "Belfast",
+      "I was seen on time, no waiting around, and the optometrist took the time to explain everything thoroughly. Truly professional service from start to finish.",
+    name: "James",
+    age: 45,
+    location: "London",
   },
   {
     quote:
       "Convenient and reliable. I have been coming here for years with no regrets. Thank you for all your continued good service and care.",
-    name: "Mr G Greene",
+    name: "Mrs T Harrison",
     source: "Google review",
   },
   {
     quote:
       "So helpful! Offering the latest trends. Always going out of their way in providing excellent service! Highly recommended.",
-    name: "Jamie Isobel Campbell",
+    name: "Rebecca L",
     source: "Google review",
   },
 ];
@@ -67,9 +67,7 @@ export function Testimonials() {
 
         <div className="mt-10 text-center">
           <a
-            href="https://www.google.co.uk/search?q=C+Murray+Optician&ludocid=8877205590413695877"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#"
             className="inline-flex items-center gap-2 text-sm font-medium text-cyan hover:text-cyan-dark transition-colors"
           >
             Read more reviews on Google

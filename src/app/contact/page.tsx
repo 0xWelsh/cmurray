@@ -1,7 +1,45 @@
+"use client";
+
+import { useState, useRef, type FormEvent } from "react";
 import { PageBanner } from "@/components/layout/page-banner";
 import { Container } from "@/components/layout/container";
 
+const ACCESS_KEY = "9f2f20de-965c-4924-aaa4-0b9dd6282c0d";
+
 export default function ContactPage() {
+  const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const formRef = useRef<HTMLFormElement>(null);
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+
+    const data = Object.fromEntries(new FormData(e.currentTarget));
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...data, subject: "Contact Form - Website" }),
+      });
+
+      const result = await res.json();
+
+      if (result.success) {
+        setSubmitted(true);
+        formRef.current?.reset();
+      } else {
+        setError(result.message || "Failed to send. Please try again.");
+      }
+    } catch {
+      setError("Network error. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  }
   return (
     <>
       <PageBanner
@@ -23,8 +61,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="heading-sm mb-1">Visit us</h3>
-                    <p className="text-sm text-muted">13 Antrim Road, Belfast, BT15 2BE</p>
-                    <p className="text-xs text-muted mt-1">Near the Mater Hospital · Easy access from West Link</p>
+                    <p className="text-sm text-muted">123 High Street, London, EC1A 1BB</p>
+                    <p className="text-xs text-muted mt-1">City Centre · Easy access from public transport</p>
                   </div>
                 </div>
 
@@ -36,7 +74,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="heading-sm mb-1">Email us</h3>
-                    <a href="mailto:info@cmurrayoptician.com" className="text-sm text-muted hover:text-cyan transition-colors">info@cmurrayoptician.com</a>
+                    <a href="mailto:hello@owenopticians.com" className="text-sm text-muted hover:text-cyan transition-colors">hello@owenopticians.com</a>
                   </div>
                 </div>
 
@@ -49,8 +87,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="heading-sm mb-1">Call us</h3>
-                    <a href="tel:+442890741122" className="text-sm text-muted hover:text-cyan transition-colors">028 90 74 11 22</a>
-                    <p className="text-xs text-muted mt-0.5">Mobile: 075 574 344 65</p>
+                    <a href="tel:+44112345678" className="text-sm text-muted hover:text-cyan transition-colors">020 1234 5678</a>
+                    <p className="text-xs text-muted mt-0.5">Mobile: 077 1234 5678</p>
                   </div>
                 </div>
               </div>
@@ -74,10 +112,10 @@ export default function ContactPage() {
 
               <div className="flex gap-3">
                 {[
-                  { label: "Facebook", href: "https://www.facebook.com/cmurrayoptician/" },
-                  { label: "Instagram", href: "https://www.instagram.com/murrayopticiansbelfast/" },
-                  { label: "Twitter", href: "https://twitter.com/cmurrayopt?lang=en" },
-                  { label: "YouTube", href: "https://www.youtube.com/channel/UCmMblPuXTp90AhYMfEzX9eA/" },
+                  { label: "Facebook", href: "#" },
+                  { label: "Instagram", href: "#" },
+                  { label: "Twitter", href: "#" },
+                  { label: "YouTube", href: "#" },
                 ].map((social) => (
                   <a
                     key={social.label}
@@ -96,27 +134,54 @@ export default function ContactPage() {
             <div className="p-6 md:p-8 rounded-xl bg-warm border border-border">
               <h3 className="heading-sm mb-2">Send us a message</h3>
               <p className="text-sm text-muted mb-6">We'll get back to you within 24 hours.</p>
-              <form className="space-y-4">
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="contact-name" className="label block mb-1.5">Name</label>
-                    <input type="text" id="contact-name" placeholder="Your name" className="w-full px-4 py-2.5 text-sm bg-white border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-cyan transition-colors" />
+
+              {submitted ? (
+                <div className="p-6 rounded-xl bg-green-50 border border-green-200 text-center">
+                  <p className="text-green-800 font-medium">Thanks for your message!</p>
+                  <p className="text-sm text-green-700 mt-1">
+                    We&apos;ll get back to you within 24 hours.
+                  </p>
+                  <button
+                    onClick={() => {
+                      setSubmitted(false);
+                      setError(null);
+                    }}
+                    className="mt-4 text-sm text-green-700 underline hover:no-underline"
+                  >
+                    Send another message
+                  </button>
+                </div>
+              ) : (
+                <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
+                  <input type="hidden" name="access_key" value={ACCESS_KEY} />
+                  <input type="checkbox" name="botcheck" className="hidden" style={{ display: "none" }} />
+
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div>
+                      <label htmlFor="contact-name" className="label block mb-1.5">Name</label>
+                      <input type="text" id="contact-name" name="name" required placeholder="Your name" className="w-full px-4 py-2.5 text-sm bg-white border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-cyan transition-colors" />
+                    </div>
+                    <div>
+                      <label htmlFor="contact-email" className="label block mb-1.5">Email</label>
+                      <input type="email" id="contact-email" name="email" required placeholder="your@email.com" className="w-full px-4 py-2.5 text-sm bg-white border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-cyan transition-colors" />
+                    </div>
                   </div>
                   <div>
-                    <label htmlFor="contact-email" className="label block mb-1.5">Email</label>
-                    <input type="email" id="contact-email" placeholder="your@email.com" className="w-full px-4 py-2.5 text-sm bg-white border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-cyan transition-colors" />
+                    <label htmlFor="contact-phone" className="label block mb-1.5">Phone</label>
+                    <input type="tel" id="contact-phone" name="phone" placeholder="Your phone number" className="w-full px-4 py-2.5 text-sm bg-white border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-cyan transition-colors" />
                   </div>
-                </div>
-                <div>
-                  <label htmlFor="contact-phone" className="label block mb-1.5">Phone</label>
-                  <input type="tel" id="contact-phone" placeholder="Your phone number" className="w-full px-4 py-2.5 text-sm bg-white border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-cyan transition-colors" />
-                </div>
-                <div>
-                  <label htmlFor="contact-message" className="label block mb-1.5">Message</label>
-                  <textarea id="contact-message" rows={4} placeholder="How can we help?" className="w-full px-4 py-2.5 text-sm bg-white border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-cyan transition-colors resize-none" />
-                </div>
-                <button type="submit" className="w-full px-6 py-3 bg-cyan text-white text-sm font-medium rounded-lg hover:bg-cyan-dark transition-colors">Send Message</button>
-              </form>
+                  <div>
+                    <label htmlFor="contact-message" className="label block mb-1.5">Message</label>
+                    <textarea id="contact-message" name="message" rows={4} required placeholder="How can we help?" className="w-full px-4 py-2.5 text-sm bg-white border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-cyan transition-colors resize-none" />
+                  </div>
+
+                  {error && <p className="text-sm text-red-600">{error}</p>}
+
+                  <button type="submit" disabled={loading} className="w-full px-6 py-3 bg-cyan text-white text-sm font-medium rounded-lg hover:bg-cyan-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+                    {loading ? "Sending..." : "Send Message"}
+                  </button>
+                </form>
+              )}
             </div>
           </div>
         </Container>
@@ -125,7 +190,7 @@ export default function ContactPage() {
       <section className="h-[300px] bg-warm border-t border-border flex items-center justify-center">
         <div className="text-center">
           <p className="text-sm text-muted">Map integration</p>
-          <p className="text-xs text-muted mt-1">13 Antrim Road, Belfast, BT15 2BE</p>
+          <p className="text-xs text-muted mt-1">123 High Street, London, EC1A 1BB</p>
         </div>
       </section>
     </>

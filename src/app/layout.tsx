@@ -19,15 +19,15 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "C Murray Optician — Independent Prescriber Optometrist Belfast",
+  title: "OWEN opticians — Premium Opticians",
   description:
-    "Personalised eye care for the whole family on the Antrim Road, Belfast. Independent Prescriber Optometrist & Specialist in Children's Eye Care since 2006.",
+    "Professional eye care for the whole family. Comprehensive eye examinations, designer eyewear, and specialist children's eye care.",
   openGraph: {
-    title: "C Murray Optician — Belfast",
+    title: "OWEN opticians",
     description:
-      "Independent Prescriber Optometrist & Specialist in Children's Eye Care.",
-    url: "https://cmurrayoptician.com",
-    siteName: "C Murray Optician",
+      "Premium Opticians — comprehensive eye care for the whole family.",
+    url: "https://owenopticians.com",
+    siteName: "OWEN opticians",
     locale: "en_GB",
     type: "website",
   },
@@ -47,19 +47,19 @@ export default function RootLayout({
         <div className="bg-charcoal text-white/70 text-xs py-2.5 hidden md:block">
           <div className="max-w-[75rem] mx-auto px-6 flex items-center justify-between">
             <div className="flex items-center gap-5">
-              <a href="tel:+442890741122" className="hover:text-white transition-colors flex items-center gap-1.5">
+              <a href="tel:+44112345678" className="hover:text-white transition-colors flex items-center gap-1.5">
                 <svg className="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none">
                   <path d="M14.5 11.5L11 10.5L9.5 12C7.5 11 5 8.5 4 6.5L5.5 5L4.5 1.5L2 1C1.5 5 3.5 9.5 7 13C10.5 16.5 15 14 15 14L14.5 11.5Z" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
-                028 90 74 11 22
+                020 1234 5678
               </a>
               <span className="text-white/20">|</span>
-              <a href="mailto:info@cmurrayoptician.com" className="hover:text-white transition-colors flex items-center gap-1.5">
+              <a href="mailto:hello@owenopticians.com" className="hover:text-white transition-colors flex items-center gap-1.5">
                 <svg className="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none">
                   <path d="M2 4L8 9L14 4" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
                   <rect x="2" y="3" width="12" height="10" rx="1.5" stroke="currentColor" strokeWidth="1.3" />
                 </svg>
-                info@cmurrayoptician.com
+                hello@owenopticians.com
               </a>
               <span className="text-white/20">|</span>
               <span className="flex items-center gap-1.5">
@@ -67,7 +67,7 @@ export default function RootLayout({
                   <path d="M8 1C5.5 1 2 2.5 2 6C2 9 5 12 8 15C11 12 14 9 14 6C14 2.5 10.5 1 8 1Z" stroke="currentColor" strokeWidth="1.3" />
                   <circle cx="8" cy="6" r="2" stroke="currentColor" strokeWidth="1.3" />
                 </svg>
-                Antrim Road, Belfast
+                123 High Street, London
               </span>
             </div>
             <div className="flex items-center gap-4">

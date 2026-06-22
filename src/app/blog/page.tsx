@@ -31,7 +31,7 @@ export default function BlogPage() {
     <>
       <PageBanner
         title="News &amp; Insights"
-        subtitle="Eye health advice, practice news, and frame styling tips from the team at Murray Opticians."
+        subtitle="Eye health advice, practice news, and frame styling tips from the team at OWEN opticians."
       />
 
       <section className="py-16 md:py-20 bg-white">

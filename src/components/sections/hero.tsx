@@ -32,10 +32,10 @@ export function Hero() {
               {slide.theme}
             </p>
             <h1 className="animate-fade-up text-4xl md:text-5xl lg:text-6xl font-heading text-white leading-tight">
-              C Murray Optician
+              OWEN opticians
             </h1>
             <p className="mt-6 text-lg md:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed animate-fade-up animation-delay-200">
-              Independent Prescriber Optometrist · Antrim Road, Belfast · Est. 2006
+              Premium Opticians · 123 High Street, London · Est. 2015
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center animate-fade-up animation-delay-400">
               <a

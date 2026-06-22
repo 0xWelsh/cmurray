@@ -1,7 +1,7 @@
 import { Container } from "@/components/layout/container";
 
 const stats = [
-  { number: "19+", label: "Years serving Antrim Road" },
+  { number: "10+", label: "Years of experience" },
   { number: "4.9", label: "Rating on Google" },
   { number: "1000s", label: "Happy patients" },
 ];
@@ -13,14 +13,14 @@ export function TrustSection() {
         <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           <div className="rounded-xl overflow-hidden border border-border shadow-sm h-[300px] md:h-[400px]">
             <iframe
-              src="https://www.google.com/maps?q=13+Antrim+Road+Belfast+BT15+2BE&output=embed"
+              src="https://www.google.com/maps?q=London&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="C Murray Optician location"
+              title="OWEN opticians location"
             />
           </div>
 
@@ -28,19 +28,18 @@ export function TrustSection() {
             <div>
               <p className="label-accent mb-3">About the practice</p>
               <h2 className="heading-lg">
-                Independent eye care on the Antrim Road since 2006
+                Professional eye care you can trust since 2015
               </h2>
             </div>
 
             <div className="space-y-4 text-muted leading-relaxed">
               <p>
-                C Murray Optician is a family-run independent practice built on
+                OWEN opticians is an independent practice built on
                 one belief: eye care should be personal. We take the time to get
                 to know you, your vision, and what matters most to you.
               </p>
               <p>
-                As an Independent Prescriber Optometrist, Carmel offers a level
-                of clinical expertise you won&apos;t find everywhere — from
+                Our team brings a wealth of clinical expertise — from
                 routine exams to specialist children&apos;s eye care and
                 contact lens fitting.
               </p>

@@ -6,7 +6,7 @@ export default function SpecialistServicesPage() {
     <>
       <PageBanner
         title="Specialist Services"
-        subtitle="As an Independent Prescriber Optometrist, Carmel offers advanced clinical services beyond a standard eye examination."
+        subtitle="As an Independent Prescriber Optometrist, we offer advanced clinical services beyond a standard eye examination."
       />
 
       <section className="py-16 md:py-20 bg-white">
@@ -15,11 +15,11 @@ export default function SpecialistServicesPage() {
             {[
               {
                 title: "Independent Prescribing",
-                desc: "Carmel can assess, diagnose, and prescribe medication for a range of eye conditions directly — including infections, allergies, and dry eye — without a separate GP appointment.",
+                desc: "Our optometrist can assess, diagnose, and prescribe medication for a range of eye conditions directly — including infections, allergies, and dry eye — without a separate GP appointment.",
               },
               {
                 title: "Children's Eye Care",
-                desc: "Specialist paediatric eye care from an accredited practitioner. Carmel holds a Professional Certificate in Paediatric Eye Care and has extensive experience with children of all ages.",
+                desc: "Specialist paediatric eye care from an accredited practitioner. Our optometrist holds a Professional Certificate in Paediatric Eye Care and has extensive experience with children of all ages.",
               },
               {
                 title: "Visual Stress Management",

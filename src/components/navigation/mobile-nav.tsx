@@ -61,7 +61,7 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
         )}
       >
         <div className="flex items-center justify-between px-6 h-16 border-b border-border">
-          <Image src="/logo.webp" alt="Murray Optician" width={120} height={49} className="h-8 w-auto" />
+          <Image src="/logo.webp" alt="OWEN opticians" width={120} height={49} className="h-8 w-auto" />
           <button
             onClick={onClose}
             className="p-2 -mr-2 text-charcoal"
