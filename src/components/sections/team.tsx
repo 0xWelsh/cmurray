@@ -7,7 +7,7 @@ const lead = {
   qualification: "BSc (Hons) · MCOptom · Dip Tp (IP)",
   description:
     "Dr. Chen has developed specific expertise in children's vision and the management of visual stress using coloured filters. He is committed to providing personalised, thorough eye care for every patient who walks through the door.",
-  img: "/carmel.webp",
+  img: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=500&q=80",
 };
 
 const team = [

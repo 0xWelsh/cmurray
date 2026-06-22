@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { Logo } from "@/components/layout/logo";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -61,7 +61,7 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
         )}
       >
         <div className="flex items-center justify-between px-6 h-16 border-b border-border">
-          <Image src="/logo.webp" alt="OWEN opticians" width={120} height={49} className="h-8 w-auto" />
+          <Logo />
           <button
             onClick={onClose}
             className="p-2 -mr-2 text-charcoal"

@@ -9,7 +9,7 @@ const lead = {
     "BSc (Hons) · MCOptom · Dip Tp (IP) · Prof Cert in Paediatric Eye Care",
   description:
     "Dr. Chen is the lead optometrist at OWEN opticians, established in 2015. Alongside his commitment to the very highest standards in patient care, Dr. Chen has completed a Diploma in Independent Prescribing and achieved a Professional Certificate in Paediatric Eye Care. He has developed specific expertise in the management of visual stress using coloured filters.",
-  img: "/carmel.webp",
+  img: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=500&q=80",
 };
 
 const team = [

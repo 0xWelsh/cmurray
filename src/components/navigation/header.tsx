@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Container } from "@/components/layout/container";
+import { Logo } from "@/components/layout/logo";
 import { MobileNav } from "./mobile-nav";
 
 const navLinks = [
@@ -39,7 +39,7 @@ export function Header() {
         <Container>
           <div className="flex items-center justify-between h-16 md:h-20">
             <a href="/" className="flex items-center gap-2 shrink-0">
-              <Image src="/logo.webp" alt="OWEN opticians" width={180} height={73} className="h-10 md:h-12 w-auto" priority />
+              <Logo />
             </a>
 
             <nav className="hidden lg:flex items-center gap-0.5">

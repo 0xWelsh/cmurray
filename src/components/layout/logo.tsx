@@ -1,12 +1,12 @@
-// Replace this component with <Image> once /public/logo.webp exists.
-// For now it renders the brand name as text.
-
 export function Logo({ className, inverted }: { className?: string; inverted?: boolean }) {
-  const textClass = `font-heading text-xl font-semibold tracking-tight ${inverted ? "text-white" : "text-charcoal"}`;
-
   return (
-    <span className={`${textClass} ${className || ""}`}>
-      OWEN<span className="text-cyan"> opticians</span>
+    <span className={`inline-flex flex-col leading-tight ${className || ""}`}>
+      <span className={`font-heading text-2xl md:text-3xl font-semibold tracking-wide ${inverted ? "text-white" : "text-charcoal"}`}>
+        O<span className="text-cyan">W</span>EN
+      </span>
+      <span className={`text-[10px] md:text-xs font-medium tracking-[0.25em] uppercase ${inverted ? "text-white/60" : "text-muted"}`}>
+        Opticians
+      </span>
     </span>
   );
 }

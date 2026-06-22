@@ -1,5 +1,5 @@
 import { Container } from "@/components/layout/container";
-import Image from "next/image";
+import { Logo } from "@/components/layout/logo";
 
 export function Footer() {
   return (
@@ -7,7 +7,7 @@ export function Footer() {
       <Container className="py-12 md:py-16">
         <div className="grid md:grid-cols-3 gap-10">
           <div className="space-y-4">
-            <Image src="/images/logo.png" alt="OWEN opticians" width={200} height={82} className="h-14 md:h-16 w-auto" />
+            <Logo />
             <p className="text-sm leading-relaxed text-muted max-w-xs">
               Professional, personalised eye care for the whole family.
               Comprehensive examinations, designer eyewear, and specialist care.

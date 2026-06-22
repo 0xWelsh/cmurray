@@ -2,15 +2,15 @@ import Image from "next/image";
 
 const slides = [
   {
-    image: "/images/pexels-gustavo-fring-5621864.jpg",
+    image: "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=1600&q=80",
     theme: "Comprehensive Eye Examinations",
   },
   {
-    image: "/images/pexels-karola-g-5202049.jpg",
+    image: "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=1600&q=80",
     theme: "Designer Frames & Styling",
   },
   {
-    image: "/images/pexels-jose-antonio-otegui-auzmendi-2150489988-32209715.jpg",
+    image: "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=1600&q=80",
     theme: "Eye Care for the Whole Family",
   },
 ];
